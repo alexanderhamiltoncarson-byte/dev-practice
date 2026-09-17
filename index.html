@@ -3,216 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azeroth Archive | Ultimate WoW Lore</title>
+    <title>World of Warcraft | Official Archive</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav>
-        <div class="logo">AZEROTH<span>ARCHIVE</span></div>
-        <ul class="nav-links">
-            <li><a href="#forever">WoW Forever</a></li>
-            <li><a href="#cosmology">Cosmology</a></li>
-            <li><a href="#territories">Maps</a></li>
-            <li><a href="#figures">Leaders</a></li>
-        </ul>
-        <div class="theme-switcher">
-            <button id="alliance-btn" class="faction-pill alliance">Alliance</button>
-            <button id="horde-btn" class="faction-pill horde">Horde</button>
-            <button id="neutral-btn" class="faction-pill neutral">Neutral</button>
+    <nav id="main-nav">
+        <div class="nav-container">
+            <div class="logo">WORLD OF <span class="logo-sub">WARCRAFT</span></div>
+            <ul class="nav-links">
+                <li><a href="#forever">Forever</a></li>
+                <li><a href="#cosmology">Cosmology</a></li>
+                <li><a href="#territories">Territories</a></li>
+                <li><a href="#figures">Characters</a></li>
+            </ul>
+            <div class="theme-switcher">
+                <button id="alliance-btn" class="faction-pill alliance">Alliance</button>
+                <button id="horde-btn" class="faction-pill horde">Horde</button>
+                <button id="neutral-btn" class="faction-pill neutral">Neutral</button>
+            </div>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="hero-overlay"></div>
+        <div class="hero-video-placeholder"></div>
         <div class="hero-content">
-            <h1 class="hero-title">WORLD OF <br><span>WARCRAFT</span></h1>
-            <p>The definitive digital archive of the cosmology, history, and the new era of Azeroth.</p>
-            <a href="#forever" class="hero-btn">Explore the New Era</a>
+            <h1 class="hero-title">THE ARCHIVE</h1>
+            <p class="hero-subtitle">Chronicles of the Eternal Conflict</p>
+            <div class="hero-btns">
+                <a href="#forever" class="btn-primary">Explore Forever</a>
+                <a href="#figures" class="btn-secondary">View Legends</a>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- WORLD OF WARCRAFT: FOREVER SECTION -->
-        <section id="forever" class="reveal">
-            <h2 class="section-header">WoW: Forever</h2>
-            <div class="forever-container">
-                <div class="forever-content">
-                    <div class="forever-badge">MAJOR RELEASE: NOV 4, 2026</div>
-                    <h3 class="forever-main-title">A Reimagined Azeroth</h3>
-                    <p><strong>World of Warcraft: Forever</strong> is a permanent, reimagined game mode. It exists in a unique "time bubble" set after the events of <em>Warcraft III: Forsaken Kingdom</em> but before the <em>Molten Core</em>, diverging from the retail timeline to explore untold stories.</p>
+        <!-- FEATURE SECTION 1: WoW Forever (Z-Pattern) -->
+        <section id="forever" class="feature-row">
+            <div class="feature-text">
+                <span class="category-tag">Upcoming Release</span>
+                <h2 class="feature-title">World of Warcraft: Forever</h2>
+                <p class="feature-desc">A reimagined permanent game mode. Set in a unique time bubble between the Forsaken Kingdom and the Molten Core, Forever diverges from the retail timeline to explore untold stories and forgotten heroes.</p>
+                <ul class="feature-list">
+                    <li><strong>The Skyborne:</strong> A new playable race of Air Elves.</li>
+                    <li><strong>Expanded Lore:</strong> 1,000+ new quests across Zephras Isle.</li>
+                    <li><strong>Eternal Cap:</strong> Level 60 cap permanently maintained.</li>
+                </ul>
+                <a href="#" class="btn-text">Read the Dev Blog &rarr;</a>
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" alt="WoW Forever">
+            </div>
+        </section>
 
-                    <div class="forever-features">
-                        <div class="feat-item">
-                            <span class="feat-icon">🕊️</span>
-                            <div class="feat-text">
-                                <strong>The Skyborne (Shen’dorai)</strong>
-                                <p>New playable race. High Elves who forged a pact with the Air elementals to survive the corruption of their kin.</p>
-                            </div>
-                        </div>
-                        <div class="feat-item">
-                            <span class="feat-icon">⚔️</span>
-                            <div class="feat-text">
-                                <strong>New Class Combinations</strong>
-                                <p>Breaking tradition with the introduction of Forsaken Paladins, Night Elf Paladins, and Dwarf Shamans.</p>
-                            </div>
-                        </div>
-                        <div class="feat-item">
-                            <span class="feat-icon">📍</span>
-                            <div class="feat-text">
-                                <strong>Expanded Geography</strong>
-                                <p>Visit entirely new lands like <strong>Zephras Isle</strong> and the <strong>Riverglades</strong> through 1,000+ new quests.</p>
-                            </div>
-                        </div>
-                        <div class="feat-item">
-                            <span class="feat-icon">📉</span>
-                            <div class="feat-text">
-                                <strong>The Eternal Level 60</strong>
-                                <p>A commitment to eliminate "FOMO"—the level cap stays at 60 indefinitely while content continues to evolve.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="forever-footer">
-                        <p>Status: <strong class="status-active">Coming November 4, 2026</strong></p>
-                    </div>
+        <!-- FEATURE SECTION 2: Cosmology (Reverse Z-Pattern) -->
+        <section id="cosmology" class="feature-row reverse">
+            <div class="feature-text">
+                <span class="category-tag">The Cosmos</span>
+                <h2 class="feature-title">The Great Order</h2>
+                <p class="feature-desc">Understanding the fundamental forces of the universe is key to survival in Azeroth. From the blinding purity of the Light to the corrupting whispers of the Void.</p>
+                <div class="cosmo-mini-grid">
+                    <div class="mini-card"><strong>Light</strong><span>Creation</span></div>
+                    <div class="mini-card"><strong>Void</strong><span>Chaos</span></div>
+                    <div class="mini-card"><strong>Arcane</strong><span>Order</span></div>
+                    <div class="mini-card"><strong>Fel</strong><span>Disorder</span></div>
                 </div>
-                <div class="forever-image">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800&auto=format&fit=crop" alt="WoW Forever Concept">
+            </div>
+            <div class="feature-image">
+                <img src="https://images.unsplash.com/photo-1462332420958-3676abcbe77c?q=80&w=800&auto=format&fit=crop" alt="Cosmology">
+            </div>
+        </section>
+
+        <!-- Territories Section (Full Width) -->
+        <section id="territories" class="full-width-section">
+            <div class="section-header-center">
+                <span class="category-tag">Geography</span>
+                <h2>Territorial Control</h2>
+                <p>The shifting borders of the Eastern Kingdoms and Kalimdor.</p>
+            </div>
+            <div class="map-wrapper">
+                <img src="https://images.unsplash.com/photo-1526778548025-fa27156f762c?q=80&w=1200&auto=format&fit=crop" alt="Azeroth Map" class="big-map">
+                <div class="map-overlay">
+                    <a href="https://mosqueras.com/world-of-warcraft-political-map/" target="_blank" class="btn-primary">Open Interactive Map</a>
                 </div>
             </div>
         </section>
 
-        <!-- Cosmology Section -->
-        <section id="cosmology" class="reveal">
-            <h2 class="section-header">The Cosmic Order</h2>
+        <!-- Figures Section (Grid) -->
+        <section id="figures" class="grid-section">
+            <div class="section-header-center">
+                <span class="category-tag">The Icons</span>
+                <h2>Legendary Figures</h2>
+                <p>The leaders and heroes who shaped the fate of the world.</p>
+            </div>
             <div class="modern-grid">
-                <div class="modern-card">
-                    <img src="https://images.unsplash.com/photo-1464802686167-bca797c1456b?q=80&w=500&auto=format&fit=crop" alt="The Light" class="card-img">
-                    <div class="modern-card-content">
-                        <div class="accent-bar"></div>
-                        <h3>The Light</h3>
-                        <p>The force of holy energy, creation, and hope. It is the primary power of the Naaru and the Paladins of the Alliance.</p>
+                <div class="character-card">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop" alt="Arthas" class="char-img">
+                    <div class="char-info">
+                        <h3>Arthas Menethil</h3>
+                        <span class="char-role">The Lich King</span>
+                        <p>A fallen prince who became the ultimate harbinger of death.</p>
                     </div>
                 </div>
-                <div class="modern-card">
-                    <img src="https://images.unsplash.com/photo-1462332420958-3676abcbe77c?q=80&w=500&auto=format&fit=crop" alt="The Void" class="card-img">
-                    <div class="modern-card-content">
-                        <div class="accent-bar"></div>
-                        <h3>The Void</h3>
-                        <p>The opposite of the Light. A chaotic force of shadows and whispers that seeks to consume all existence.</p>
+                <div class="character-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" alt="Thrall" class="char-img">
+                    <div class="char-info">
+                        <h3>Thrall</h3>
+                        <span class="char-role">Warchief</span>
+                        <p>The visionary who sought a home and honor for the Orcish people.</p>
                     </div>
                 </div>
-                <div class="modern-card">
-                    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=500&auto=format&fit=crop" alt="The Arcane" class="card-img">
-                    <div class="modern-card-content">
-                        <div class="accent-bar"></div>
-                        <h3>The Arcane</h3>
-                        <p>The energy of Order. It is the fuel for magic, allowing mages to reshape reality through logic and study.</p>
-                    </div>
-                </div>
-                <div class="modern-card">
-                    <img src="https://images.unsplash.com/photo-1533038590847-82077049771b?q=80&w=500&auto=format&fit=crop" alt="The Fel" class="card-img">
-                    <div class="modern-card-content">
-                        <div class="accent-bar"></div>
-                        <h3>The Fel</h3>
-                        <p>The energy of Disorder. Destructive and corrupting, Fel is the primary tool of the Burning Legion.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Maps Section -->
-        <section id="territories" class="reveal">
-            <h2 class="section-header">Faction Territories</h2>
-            <div class="map-container">
-                <div class="map-card">
-                    <div class="map-header">The Political Map of Azeroth</div>
-                    <img src="https://images.unsplash.com/photo-1526778548025-fa27156f762c?q=80&w=1000&auto=format&fit=crop" alt="Azeroth Political Map" class="main-map">
-                    <div class="map-footer">
-                        <p class="map-desc">Visualizing the shifting borders between the Alliance and the Horde.</p>
-                        <a href="https://mosqueras.com/world-of-warcraft-political-map/" target="_blank" class="map-link">Open Interactive Map Archive</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Figures Section -->
-        <section id="figures" class="reveal">
-            <h2 class="section-header">Leadership Archive</h2>
-
-            <div class="faction-group">
-                <h3 class="faction-title alliance-title">The Alliance Leadership</h3>
-                <div class="modern-figures">
-                    <div class="figure-pill">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" alt="Anduin" class="fig-img">
-                        <div class="figure-main">
-                            <span class="fig-name">Anduin Wrynn</span>
-                            <span class="fig-role">High King</span>
-                        </div>
-                        <p>Returning from isolation, Anduin leads the Alliance with diplomacy, light, and a renewed sense of purpose.</p>
-                    </div>
-                    <div class="figure-pill">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop" alt="Turalyon" class="fig-img">
-                        <div class="figure-main">
-                            <span class="fig-name">Turalyon</span>
-                            <span class="fig-role">Lord Commander / Regent</span>
-                        </div>
-                        <p>The military backbone of the Alliance and acting regent of Stormwind during Anduin's absence.</p>
-                    </div>
-                    <div class="figure-pill">
-                        <img src="https://images.unsplash.com/photo-1438761681033-120ca78dc0ca?q=80&w=100&auto=format&fit=crop" alt="Jaina" class="fig-img">
-                        <div class="figure-main">
-                            <span class="fig-name">Jaina Proudmoore</span>
-                            <span class="fig-role">Lord Admiral of Kul Tiras</span>
-                        </div>
-                        <p>One of the most powerful mages in history, guiding the Alliance fleets with arcane mastery.</p>
-                    </div>
-                    <div class="figure-pill">
-                        <img src="https://images.unsplash.com/photo-1552058544-f2b0842213//photo-1500648767791-00dcc994a43e?q=80&w=100&auto=format&fit=crop" alt="Velen" class="fig-img">
-                        <div class="figure-main">
-                            <span class="fig-name">Prophet Velen</span>
-                            <span class="fig-role">Leader of the Draenei</span>
-                        </div>
-                        <p>The ancient seer who guides the Alliance through visions of the cosmic future.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="faction-group">
-                <h3 class="faction-title horde-title">The Horde Council</h3>
-                <div class="modern-figures">
-                    <div class="figure-pill">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop" alt="Thrall" class="fig-img">
-                        <div class="figure-main">
-                            <span class="fig-name">Thrall</span>
-                            <span class="fig-role">Orc Representative</span>
-                        </div>
-                        <p>The legendary former Warchief who now provides wisdom and guidance to the collective council.</p>
-                    </div>
-                    <div class="figure-pill">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop" alt="Baine" class="fig-img">
-                        <div class="figure-main">
-                            <span class="fig-name">Baine Bloodhoof</span>
-                            <span class="fig-role">High Chieftain of the Tauren</span>
-                        </div>
-                        <p>A pillar of peace and stability, ensuring the Horde remains honorable.</p>
-                    </div>
-                    <div class="figure-pill">
-                        <img src="https://images.unsplash.com/photo-1531427186611-ec727fddaf9c?q=80&w=100&auto=format&fit=crop" alt="Talanji" class="fig-img">
-                        <div class="figure-main">
-                            <span class="fig-name">Talanji Windrider</span>
-                            <span class="fig-role">Queen of the Zandalari</span>
-                        </div>
-                        <p>A fierce protector of the Zandalari Empire and a powerhouse within the Council.</p>
-                    </div>
-                    <div class="figure-pill">
-                        <img src="https://images.unsplash.com/photo-1438761681033-120ca78dc0ca?q=80&w=100&auto=format&fit=crop" alt="Lor themar" class="fig-img">
-                        <div class="figure-main">
-                            <span class="fig-name">Lor'themar Theron</span>
-                            <span class="fig-role">Regent Lord of Silvermoon</span>
-                        </div>
-                        <p>The steady hand guiding the Blood Elves through political and arcane turmoil.</p>
+                <div class="character-card">
+                    <img src="https://images.unsplash.com/photo-1438761681033-120ca78dc0ca?q=80&w=400&auto=format&fit=crop" alt="Jaina" class="char-img">
+                    <div class="char-info">
+                        <h3>Jaina Proudmoore</h3>
+                        <span class="char-role">Lord Admiral</span>
+                        <p>The most powerful arcane master of the current age.</p>
                     </div>
                 </div>
             </div>
@@ -220,9 +127,16 @@
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="logo">AZEROTH<span>ARCHIVE</span></div>
-            <p>&copy; 2026 Azeroth Archive. A Learning Project.</p>
+        <div class="footer-top">
+            <div class="footer-logo">WORLD OF <span class="logo-sub">WARCRAFT</span></div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Settings</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Blizzard Entertainment, Inc. All rights reserved.</p>
         </div>
     </footer>
 

@@ -1,26 +1,26 @@
-/* Modern Gaming Aesthetic - Azeroth Archive */
+/* Blizzard-Inspired Modern Layout - Azeroth Archive */
 
 :root {
-    /* Neutral Base */
-    --bg-black: #050505;
-    --bg-surface: #111111;
-    --bg-surface-light: #1a1a1a;
-    --text-bright: #ffffff;
-    --text-main: #cccccc;
-    --text-dim: #777777;
-    --accent: #C5A059; /* WoW Gold */
-    --transition: all 0.3s ease;
+    /* Core Palette - Deep Dark Gaming */
+    --bg-black: #000000;
+    --bg-surface: #121212;
+    --bg-surface-hover: #1a1a1a;
+    --text-white: #ffffff;
+    --text-main: #e5e5e5;
+    --text-muted: #888888;
+    --accent: #C5A059; /* Default WoW Gold */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* High-Saturation Faction Overrides */
+/* Faction Theme Overrides */
 [data-theme="alliance"] {
     --accent: #00a2ff;
-    --bg-surface: #0a1220;
+    --bg-surface: #050c1a;
 }
 
 [data-theme="horde"] {
     --accent: #ff3c3c;
-    --bg-surface: #200a0a;
+    --bg-surface: #1a0505;
 }
 
 * {
@@ -34,39 +34,45 @@ body {
     background-color: var(--bg-black);
     color: var(--text-main);
     line-height: 1.6;
-    transition: var(--transition);
-    overflow-x: hidden;
+    transition: background-color 0.5s ease;
 }
 
-/* Typography */
-h1, h2, h3, h4, .logo {
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-    color: var(--text-bright);
-}
-
-/* Navigation */
+/* --- NAVIGATION --- */
 nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition);
+    padding: 20px 0;
+}
+
+/* Class added via JS when scrolling */
+nav.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
-    background-color: rgba(0,0,0,0.8);
-    backdrop-filter: blur(20px);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding: 0 5%;
 }
 
 .logo {
-    font-size: 1.2rem;
+    font-family: 'Oswald', sans-serif;
     font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--text-white);
     letter-spacing: 1px;
 }
 
-.logo span {
+.logo-sub {
     color: var(--accent);
     font-weight: 300;
 }
@@ -77,443 +83,423 @@ nav {
 }
 
 .nav-links li {
-    margin: 0 20px;
+    margin: 0 15px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dim);
+    color: var(--text-main);
     font-size: 0.8rem;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     transition: var(--transition);
+    letter-spacing: 1px;
 }
 
 .nav-links a:hover {
     color: var(--accent);
 }
 
-/* Theme Switcher Pills */
 .theme-switcher {
     display: flex;
-    background: var(--bg-surface);
-    padding: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px;
     border-radius: 50px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .faction-pill {
-    padding: 6px 16px;
+    padding: 5px 12px;
     border: none;
     background: transparent;
-    color: var(--text-dim);
+    color: var(--text-muted);
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
     border-radius: 50px;
     transition: var(--transition);
 }
 
-.faction-pill:hover {
-    color: var(--text-bright);
-}
-
-.faction-pill.active, .faction-pill:focus {
+.faction-pill.active {
     background: var(--accent);
     color: #000;
 }
 
-/* Hero Section */
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000') center/cover;
+    color: var(--text-white);
     position: relative;
+    overflow: hidden;
+}
+
+.hero-video-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000') center/cover;
+    z-index: -1;
+    transform: scale(1.1);
+    transition: transform 10s linear;
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 0 20px;
 }
 
 .hero-title {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(3.5rem, 12vw, 7rem);
     line-height: 0.9;
-    margin-bottom: 1.5rem;
-    font-weight: 900;
-    letter-spacing: -2px;
-}
-
-.hero-title span {
-    color: var(--accent);
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    color: var(--text-dim);
-    max-width: 600px;
-    margin: 0 auto 2.5rem;
-}
-
-.hero-btn {
-    padding: 16px 32px;
-    background: var(--accent);
-    color: #000;
-    text-decoration: none;
     font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: var(--transition);
-}
-
-.hero-btn:hover {
-    filter: brightness(1.2);
-    transform: translateY(-3px);
-}
-
-/* Main Layout */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 20px;
-}
-
-.section-header {
-    font-size: 2.5rem;
-    margin-bottom: 4rem;
-    text-align: center;
-    position: relative;
-}
-
-.section-header::after {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 4px;
-    background: var(--accent);
-    margin: 15px auto 0;
-}
-
-/* WoW Forever Section */
-.forever-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-    background: var(--bg-surface);
-    padding: 40px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-.forever-badge {
-    display: inline-block;
-    background: var(--accent);
-    color: #000;
-    font-size: 0.7rem;
-    font-weight: 900;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
+    letter-spacing: -2px;
     text-transform: uppercase;
 }
 
-.forever-content h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.forever-features {
-    margin: 25px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.feat-item {
-    display: flex;
-    gap: 15px;
-    align-items: flex-start;
-}
-
-.feat-icon {
+.hero-subtitle {
     font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-main);
+    margin-bottom: 3rem;
 }
 
-.feat-item p {
-    font-size: 0.9rem;
-    color: var(--text-dim);
-}
-
-.forever-footer {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.85rem;
-    color: var(--text-dim);
-}
-
-.forever-image img {
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-
-/* Modern Grid */
-.modern-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.modern-card {
-    background: var(--bg-surface);
-    border-radius: 4px;
-    transition: var(--transition);
-    border: 1px solid rgba(255,255,255,0.05);
-    overflow: hidden;
-}
-
-.card-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    transition: var(--transition);
-    filter: grayscale(30%);
-}
-
-.modern-card:hover .card-img {
-    transform: scale(1.05);
-    filter: grayscale(0%);
-}
-
-.modern-card-content {
-    padding: 30px;
-}
-
-.accent-bar {
-    width: 30px;
-    height: 4px;
-    background: var(--accent);
-    margin-bottom: 20px;
-}
-
-.modern-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-}
-
-.modern-card p {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-}
-
-.modern-card:hover {
-    background: var(--bg-surface-light);
-    transform: translateY(-5px);
-    border-color: var(--accent);
-}
-
-/* Map Section */
-.map-container {
+.hero-btns {
     display: flex;
+    gap: 20px;
     justify-content: center;
 }
 
-.map-card {
-    background: var(--bg-surface);
-    width: 100%;
-    max-width: 1000px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.05);
-    text-align: center;
-}
-
-.map-header {
-    padding: 20px;
-    background: var(--bg-surface-light);
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.main-map {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.map-desc {
-    padding: 20px;
-    color: var(--text-dim);
-    font-size: 0.9rem;
-}
-
-.map-link {
-    display: inline-block;
-    margin-bottom: 30px;
-    padding: 10px 20px;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: var(--transition);
-}
-
-.map-link:hover {
+.btn-primary {
     background: var(--accent);
     color: #000;
+    padding: 18px 35px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    border-radius: 2px;
 }
 
-/* Faction Leaders */
-.faction-group {
-    margin-bottom: 60px;
+.btn-secondary {
+    background: transparent;
+    color: var(--text-white);
+    padding: 18px 35px;
+    text-decoration: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid var(--text-white);
+    transition: var(--transition);
+    border-radius: 2px;
 }
 
-.faction-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
+.btn-primary:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
 }
 
-.alliance-title { color: #00a2ff; }
-.horde-title { color: #ff3c3c; }
-
-.modern-figures {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
 }
 
-.figure-pill {
-    background: var(--bg-surface);
-    padding: 20px;
+/* --- FEATURE ROWS (Z-Pattern) --- */
+.feature-row {
     display: flex;
     align-items: center;
-    gap: 20px;
-    border-radius: 4px;
-    transition: var(--transition);
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-.fig-img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--accent);
-}
-
-.figure-main {
-    display: flex;
-    flex-direction: column;
-}
-
-.fig-name {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
-    color: var(--text-bright);
-    font-weight: 700;
-}
-
-.fig-role {
-    color: var(--accent);
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.figure-pill p {
-    color: var(--text-dim);
-    font-size: 0.85rem;
-    margin: 0;
-}
-
-.figure-pill:hover {
-    background: var(--bg-surface-light);
-    border-color: var(--accent);
-}
-
-/* Modern Timeline */
-.modern-timeline {
-    position: relative;
-    max-width: 800px;
+    justify-content: center;
+    padding: 100px 8%;
+    gap: 80px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-.timeline-row {
-    display: flex;
-    margin-bottom: 40px;
-    gap: 30px;
+.feature-row.reverse {
+    flex-direction: row-reverse;
 }
 
-.time-label {
-    flex: 0 0 150px;
-    text-align: right;
-    font-family: 'Oswald', sans-serif;
-    color: var(--accent);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    padding-top: 5px;
-}
-
-.time-content {
+.feature-text {
     flex: 1;
-    background: var(--bg-surface);
-    padding: 25px;
-    border-radius: 4px;
-    border-left: 4px solid var(--accent);
+    max-width: 550px;
 }
 
-.time-content h4 {
-    font-size: 1.2rem;
+.category-tag {
+    display: inline-block;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
     margin-bottom: 10px;
 }
 
-.time-content p {
-    color: var(--text-dim);
+.feature-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--text-white);
+}
+
+.feature-desc {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 30px;
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.feature-list li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    color: var(--text-main);
+}
+
+.feature-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.btn-text {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
     font-size: 0.9rem;
+    transition: var(--transition);
 }
 
-/* Reveal Animation */
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.btn-text:hover {
+    text-decoration: underline;
 }
 
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+.feature-image {
+    flex: 1;
+    position: relative;
+}
+
+.feature-image img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    transition: var(--transition);
+}
+
+.feature-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Cosmology Mini Grid */
+.cosmo-mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.mini-card {
+    background: var(--bg-surface);
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+}
+
+.mini-card strong {
+    display: block;
+    color: var(--text-white);
+    font-family: 'Oswald', sans-serif;
+}
+
+.mini-card span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* --- TERRITORIES (FULL WIDTH) --- */
+.full-width-section {
+    padding: 100px 0;
+    background: var(--bg-surface);
+    text-align: center;
+}
+
+.section-header-center {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+.section-header-center h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: var(--text-white);
+    margin: 10px 0;
+}
+
+.map-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.big-map {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+.map-overlay {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- CHARACTERS GRID --- */
+.grid-section {
+    padding: 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.character-card {
+    background: var(--bg-surface);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.char-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.char-info {
+    padding: 30px;
+}
+
+.char-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    color: var(--text-white);
+    margin-bottom: 5px;
+}
+
+.char-role {
+    display: block;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+}
+
+.char-info p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.character-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+}
+
+.character-card:hover .char-img {
+    transform: scale(1.05);
 }
 
 /* Footer */
 footer {
-    padding: 60px 0;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
     background: #000;
+    padding: 80px 5% 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.footer-content .logo {
-    margin-bottom: 10px;
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
-.footer-content p {
-    color: var(--text-dim);
+.footer-logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
     font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--text-white);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    font-size: 0.7rem;
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+    .feature-row, .feature-row.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .feature-text {
+        max-width: 100%;
+    }
+    .feature-list li {
+        text-align: left;
+    }
+    .hero-title {
+        font-size: 4rem;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .forever-container { grid-template-columns: 1fr; }
-    .timeline-row { flex-direction: column; gap: 10px; }
-    .time-label { text-align: left; }
-    .hero-title { font-size: 3rem; }
-    .modern-figures { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; }
 }

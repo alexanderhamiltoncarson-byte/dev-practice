@@ -1,12 +1,25 @@
-// Modern Gaming Archive - Interaction Script
+// Blizzard-Inspired Modern Archive Interaction Script
 document.addEventListener('DOMContentLoaded', () => {
 
+    const nav = document.getElementById('main-nav');
     const allianceBtn = document.getElementById('alliance-btn');
     const hordeBtn = document.getElementById('horde-btn');
     const neutralBtn = document.getElementById('neutral-btn');
     const body = document.body;
 
-    // 1. Sleek Theme Switcher
+    // 1. Professional Navbar Scroll Effect
+    // Makes the nav transparent at the top and solid when scrolling down
+    const handleNavScroll = () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    };
+
+    window.addEventListener('scroll', handleNavScroll);
+
+    // 2. Sleek Theme Switcher
     const setTheme = (theme) => {
         body.setAttribute('data-theme', theme);
 
@@ -24,34 +37,27 @@ document.addEventListener('DOMContentLoaded', () => {
     hordeBtn.addEventListener('click', () => setTheme('horde'));
     neutralBtn.addEventListener('click', () => setTheme('neutral'));
 
-    // 2. Performance-Optimized Reveal
-    const revealOnScroll = () => {
-        const elements = document.querySelectorAll('.reveal');
-
-        elements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (elementTop < windowHeight * 0.9) {
-                el.classList.add('visible');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll(); // Initial check
-
-    // 3. Smooth Scrolling
+    // 3. Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // Calculate offset for the fixed navbar
+                const navHeight = nav.offsetHeight;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
+
+    // Set default active button
+    setTheme('neutral');
 });
