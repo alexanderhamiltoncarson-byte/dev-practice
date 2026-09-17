@@ -140,7 +140,7 @@ nav.scrolled {
     color: var(--text-white);
     position: relative;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000') center/cover no-repeat fixed;
+                url('https://images.unsplash.com/photo-1500530855697-B586d8952675?q=80&w=2000') center/cover no-repeat fixed;
 }
 
 .hero-logo-banner {
