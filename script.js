@@ -11,7 +11,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Price Calculator Logic
+    // 2. Live Activity Toast Notification
+    const activityToast = document.getElementById('live-activity');
+    const activityText = document.getElementById('activity-text');
+    const activities = [
+        "Someone in your area just booked a Deep Clean!",
+        "A new customer just joined Pristine Pro!",
+        "Another home just got sparkling clean in your city!",
+        "Pristine Pro just completed a 5-star commercial clean!",
+        "Limited slots available for this weekend!"
+    ];
+
+    let activityIndex = 0;
+    const showActivity = () => {
+        activityText.innerText = activities[activityIndex];
+        activityToast.classList.add('show');
+
+        setTimeout(() => {
+            activityToast.classList.remove('show');
+            activityIndex = (activityIndex + 1) % activities.length;
+        }, 5000);
+    };
+
+    // Start activity loop
+    setInterval(showActivity, 12000);
+    setTimeout(showActivity, 3000);
+
+    // 3. Price Calculator Logic
     const sqftSlider = document.getElementById('sqft-slider');
     const sqftValue = document.getElementById('sqft-value');
     const totalPriceElement = document.getElementById('total-price');
@@ -62,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize price
     calculatePrice();
 
-    // 3. Appointment Form Submission
+    // 4. Appointment Form Submission
     const appointmentForm = document.getElementById('appointment-form');
     if (appointmentForm) {
         appointmentForm.addEventListener('submit', (e) => {
