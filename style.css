@@ -1,0 +1,385 @@
+/* Modern Gaming Aesthetic - Azeroth Archive */
+
+:root {
+    /* Neutral Base */
+    --bg-black: #050505;
+    --bg-surface: #111111;
+    --bg-surface-light: #1a1a1a;
+    --text-bright: #ffffff;
+    --text-main: #cccccc;
+    --text-dim: #777777;
+    --accent: #C5A059; /* WoW Gold */
+    --transition: all 0.3s ease;
+}
+
+/* High-Saturation Faction Overrides */
+[data-theme="alliance"] {
+    --accent: #00a2ff;
+    --bg-surface: #0a1220;
+}
+
+[data-theme="horde"] {
+    --accent: #ff3c3c;
+    --bg-surface: #200a0a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-black);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: var(--transition);
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, .logo {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: var(--text-bright);
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(20px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--accent);
+    font-weight: 300;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* Theme Switcher Pills */
+.theme-switcher {
+    display: flex;
+    background: var(--bg-surface);
+    padding: 4px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.faction-pill {
+    padding: 6px 16px;
+    border: none;
+    background: transparent;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.faction-pill:hover {
+    color: var(--text-bright);
+}
+
+.faction-pill.active, .faction-pill:focus {
+    background: var(--accent);
+    color: #000;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2000') center/cover;
+    position: relative;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 6rem);
+    line-height: 0.9;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.hero-title span {
+    color: var(--accent);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+}
+
+.hero-btn {
+    padding: 16px 32px;
+    background: var(--accent);
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.hero-btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-3px);
+}
+
+/* Main Layout */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+}
+
+.section-header {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+}
+
+.section-header::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--accent);
+    margin: 15px auto 0;
+}
+
+/* Modern Grid */
+.modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.modern-card {
+    background: var(--bg-surface);
+    border-radius: 4px;
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: var(--transition);
+    filter: grayscale(30%);
+}
+
+.modern-card:hover .card-img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.modern-card-content {
+    padding: 30px;
+}
+
+.accent-bar {
+    width: 30px;
+    height: 4px;
+    background: var(--accent);
+    margin-bottom: 20px;
+}
+
+.modern-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.modern-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.modern-card:hover {
+    background: var(--bg-surface-light);
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+/* Modern Timeline */
+.modern-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-row {
+    display: flex;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.time-label {
+    flex: 0 0 150px;
+    text-align: right;
+    font-family: 'Oswald', sans-serif;
+    color: var(--accent);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding-top: 5px;
+}
+
+.time-content {
+    flex: 1;
+    background: var(--bg-surface);
+    padding: 25px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent);
+}
+
+.time-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.time-content p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* Figure Pills */
+.modern-figures {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.figure-pill {
+    background: var(--bg-surface);
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 4px;
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.fig-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+}
+
+.figure-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.fig-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    color: var(--text-bright);
+    font-weight: 700;
+}
+
+.fig-role {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.figure-pill p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.figure-pill:hover {
+    background: var(--bg-surface-light);
+    border-color: var(--accent);
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    background: #000;
+}
+
+.footer-content .logo {
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .timeline-row { flex-direction: column; gap: 10px; }
+    .time-label { text-align: left; }
+    .hero-title { font-size: 3rem; }
+}
