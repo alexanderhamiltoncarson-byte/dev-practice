@@ -148,10 +148,13 @@ nav.scrolled {
 }
 
 .main-logo {
-    max-width: 500px;
-    width: 90%;
-    filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.5));
-    animation: logoFadeIn 1.5s ease-out;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(197, 160, 89, 0.6));
+    animation: logoFadeIn 2s ease-out;
+    margin: 0 auto;
+    display: block;
 }
 
 @keyframes logoFadeIn {
