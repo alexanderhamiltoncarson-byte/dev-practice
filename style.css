@@ -7,12 +7,12 @@
     --bg-surface-hover: #1a1a1a;
     --text-white: #ffffff;
     --text-main: #e5e5e5;
-    --text-muted: #888888;
+    --text-dim: #777777;
     --accent: #C5A059; /* Default WoW Gold */
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Faction Theme Overrides */
+/* High-Saturation Faction Overrides */
 [data-theme="alliance"] {
     --accent: #00a2ff;
     --bg-surface: #050c1a;
@@ -37,7 +37,14 @@ body {
     transition: background-color 0.5s ease;
 }
 
-/* --- NAVIGATION --- */
+/* Typography */
+h1, h2, h3, h4, .logo {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    color: var(--text-white);
+}
+
+/* Navigation */
 nav {
     position: fixed;
     top: 0;
@@ -64,10 +71,8 @@ nav.scrolled {
 }
 
 .logo {
-    font-family: 'Oswald', sans-serif;
+    font-size: 1.2rem;
     font-weight: 700;
-    font-size: 1.4rem;
-    color: var(--text-white);
     letter-spacing: 1px;
 }
 
@@ -139,7 +144,6 @@ nav.scrolled {
 }
 
 .hero-title {
-    font-family: 'Oswald', sans-serif;
     font-size: clamp(3.5rem, 12vw, 7rem);
     line-height: 0.9;
     font-weight: 700;
@@ -148,11 +152,15 @@ nav.scrolled {
     text-transform: uppercase;
 }
 
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
+.hero-title span {
+    color: var(--accent);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
     color: var(--text-main);
-    margin-bottom: 3rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
 }
 
 .hero-btns {
@@ -191,155 +199,183 @@ nav.scrolled {
     transform: scale(1.05);
 }
 
-/* --- BACKGROUND SECTIONS (PARALLAX) --- */
-.bg-section {
-    position: relative;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 100px 5%;
-}
-
-.section-1 {
-    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-                      url('https://images.unsplash.com/photo-1464802686167-bca797c1456b?q=80&w=2000');
-}
-
-.section-2 {
-    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-                      url('https://images.unsplash.com/photo-1462332420958-3676abcbe77c?q=80&w=2000');
-}
-
-.content-overlay {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.text-block {
-    max-width: 600px;
-    padding: 40px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
-    border-left: 5px solid var(--accent);
-    border-radius: 0 8px 8px 0;
-}
-
-.text-block.reverse {
-    margin-left: auto;
-    border-left: none;
-    border-right: 5px solid var(--accent);
-    border-radius: 8px 0 0 8px;
-    text-align: right;
-}
-
-.category-tag {
-    display: inline-block;
-    color: var(--accent);
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-.feature-title {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--text-white);
-}
-
-.feature-desc {
-    font-size: 1.1rem;
-    color: var(--text-main);
-    margin-bottom: 30px;
-}
-
-.btn-text {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+/* --- COMMON IMAGE STYLING --- */
+img {
+    background-color: var(--bg-surface); /* Fallback color while loading */
     transition: var(--transition);
 }
 
-/* --- GRID SECTIONS --- */
-.grid-section {
-    padding: 100px 8%;
-    max-width: 1400px;
+/* --- MAIN LAYOUT --- */
+main {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 100px 20px;
 }
 
-.section-header-center {
+.section-header {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
     text-align: center;
-    margin-bottom: 60px;
+    position: relative;
 }
 
-.section-header-center h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3rem;
-    color: var(--text-white);
-    margin: 10px 0;
+.section-header::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--accent);
+    margin: 15px auto 0;
 }
 
+/* Modern Grid */
 .modern-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-.character-card {
+.modern-card {
     background: var(--bg-surface);
-    border-radius: 8px;
-    overflow: hidden;
+    border-radius: 4px;
     transition: var(--transition);
     border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
 }
 
-.char-img {
+.card-img {
     width: 100%;
-    height: 400px;
+    height: 180px;
     object-fit: cover;
     transition: var(--transition);
 }
 
-.char-info {
+.modern-card-content {
     padding: 30px;
 }
 
-.char-info h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
-    color: var(--text-white);
-    margin-bottom: 5px;
+.accent-bar {
+    width: 30px;
+    height: 4px;
+    background: var(--accent);
+    margin-bottom: 20px;
 }
 
-.char-role {
-    display: block;
-    color: var(--accent);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.8rem;
+.modern-card h3 {
+    font-size: 1.5rem;
     margin-bottom: 15px;
 }
 
-.character-card:hover {
-    transform: translateY(-10px);
+.modern-card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.modern-card:hover {
+    background: var(--bg-surface-light);
+    transform: translateY(-5px);
     border-color: var(--accent);
 }
 
-/* --- MAPS PAGE --- */
-.page-maps {
-    background-color: var(--bg-black);
+/* Modern Timeline */
+.modern-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
+.timeline-row {
+    display: flex;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.time-label {
+    flex: 0 0 150px;
+    text-align: right;
+    font-family: 'Oswald', sans-serif;
+    color: var(--accent);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding-top: 5px;
+}
+
+.time-content {
+    flex: 1;
+    background: var(--bg-surface);
+    padding: 25px;
+    border-radius: 4px;
+    border-left: 4px solid var(--accent);
+}
+
+.time-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.time-content p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* Figure Pills */
+.modern-figures {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.figure-pill {
+    background: var(--bg-surface);
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 4px;
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.fig-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+}
+
+.figure-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.fig-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    color: var(--text-bright);
+    font-weight: 700;
+}
+
+.fig-role {
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.figure-pill p {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.figure-pill:hover {
+    background: var(--bg-surface-light);
+    border-color: var(--accent);
+}
+
+/* Map Page Styles */
 .page-header {
     height: 40vh;
     display: flex;
@@ -398,20 +434,10 @@ nav.scrolled {
     color: var(--text-muted);
 }
 
-/* --- SKYBORNE PAGE --- */
-.page-skyborne {
-    background-color: var(--bg-black);
-}
-
-.skyborne-header {
-    height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+/* Skyborne Page Styles */
+.page-header.skyborne-header {
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
                 url('https://images.unsplash.com/photo-1464802686167-bca797c1456b?q=80&w=2000') center/cover;
-    color: var(--text-white);
 }
 
 .info-split {
@@ -437,72 +463,31 @@ nav.scrolled {
     padding: 60px;
     border-radius: 12px;
     border: 1px solid var(--accent);
+    text-align: center;
 }
 
 /* Footer */
 footer {
-    background: #000;
-    padding: 60px 5% 40px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.footer-logo {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    color: var(--text-white);
-}
-
-.footer-logo span {
-    color: var(--accent);
-}
-
-.footer-links {
-    display: flex;
-    gap: 30px;
-}
-
-.footer-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 0.8rem;
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--text-white);
-}
-
-.footer-bottom {
+    padding: 60px 0;
     text-align: center;
-    padding-top: 30px;
     border-top: 1px solid rgba(255,255,255,0.05);
-    color: var(--text-muted);
-    font-size: 0.7rem;
+    background: #000;
+}
+
+.footer-content .logo {
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    color: var(--text-dim);
+    font-size: 0.8rem;
 }
 
 /* Responsive */
-@media (max-width: 992px) {
-    .feature-row {
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-    }
-    .feature-text {
-        max-width: 100%;
-    }
-    .info-split {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (max-width: 768px) {
     .nav-links { display: none; }
+    .timeline-row { flex-direction: column; gap: 10px; }
+    .time-label { text-align: left; }
     .hero-title { font-size: 3rem; }
+    .info-split { grid-template-columns: 1fr; }
 }
