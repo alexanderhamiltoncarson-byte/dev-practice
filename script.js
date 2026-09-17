@@ -1,63 +1,84 @@
-// Blizzard-Inspired Modern Archive Interaction Script
 document.addEventListener('DOMContentLoaded', () => {
-
     const nav = document.getElementById('main-nav');
-    const allianceBtn = document.getElementById('alliance-btn');
-    const hordeBtn = document.getElementById('horde-btn');
-    const neutralBtn = document.getElementById('neutral-btn');
-    const body = document.body;
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    // 1. Professional Navbar Scroll Effect
-    // Makes the nav transparent at the top and solid when scrolling down
-    const handleNavScroll = () => {
+    // 1. Sticky Navbar Effect
+    window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
+    });
+
+    // 2. Price Calculator Logic
+    const sqftSlider = document.getElementById('sqft-slider');
+    const sqftValue = document.getElementById('sqft-value');
+    const totalPriceElement = document.getElementById('total-price');
+    const levelButtons = document.querySelectorAll('[data-level]');
+    const freqButtons = document.querySelectorAll('[data-freq]');
+
+    let currentLevel = 'standard';
+    let currentFreq = 'once';
+
+    const calculatePrice = () => {
+        const sqft = parseInt(sqftSlider.value);
+        sqftValue.innerText = sqft.toLocaleString();
+
+        // Base pricing: $0.10 per sqft for standard, $0.15 for deep
+        let rate = currentLevel === 'standard' ? 0.10 : 0.15;
+        let total = sqft * rate;
+
+        // Add base fee
+        total += 50;
+
+        // Apply Frequency Discounts
+        if (currentFreq === 'weekly') total *= 0.85;
+        if (currentFreq === 'biweekly') total *= 0.90;
+
+        totalPriceElement.innerText = Math.round(total).toLocaleString();
     };
 
-    window.addEventListener('scroll', handleNavScroll);
+    sqftSlider.addEventListener('input', calculatePrice);
 
-    // 2. Sleek Theme Switcher
-    const setTheme = (theme) => {
-        body.setAttribute('data-theme', theme);
-
-        // Update active button state
-        document.querySelectorAll('.faction-pill').forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        if (theme === 'alliance') allianceBtn.classList.add('active');
-        if (theme === 'horde') hordeBtn.classList.add('active');
-        if (theme === 'neutral') neutralBtn.classList.add('active');
-    };
-
-    allianceBtn.addEventListener('click', () => setTheme('alliance'));
-    hordeBtn.addEventListener('click', () => setTheme('horde'));
-    neutralBtn.addEventListener('click', () => setTheme('neutral'));
-
-    // 3. Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                // Calculate offset for the fixed navbar
-                const navHeight = nav.offsetHeight;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navHeight;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
+    levelButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            levelButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentLevel = btn.dataset.level;
+            calculatePrice();
         });
     });
 
-    // Set default active button
-    setTheme('neutral');
+    freqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            freqButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFreq = btn.dataset.freq;
+            calculatePrice();
+        });
+    });
+
+    // Initialize price
+    calculatePrice();
+
+    // 3. Appointment Form Submission
+    const appointmentForm = document.getElementById('appointment-form');
+    if (appointmentForm) {
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const btn = appointmentForm.querySelector('.btn-submit');
+            const originalText = btn.innerText;
+
+            btn.innerText = 'Booking Confirmed! ✓';
+            btn.style.backgroundColor = '#2ecc71';
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.backgroundColor = '';
+                appointmentForm.reset();
+            }, 3000);
+        });
+    }
 });

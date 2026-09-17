@@ -1,132 +1,220 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="neutral">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World of Warcraft | Official Archive</title>
+    <title>Pristine Pro Cleaning | Professional Residential & Commercial Services</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bright-theme">
 
     <nav id="main-nav">
         <div class="nav-container">
-            <div class="logo">WORLD OF <span class="logo-sub">WARCRAFT</span></div>
+            <div class="logo">PRISTINE<span>PRO</span></div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="maps.html">Territories</a></li>
-                <li><a href="skyborne.html">Skyborne</a></li>
-                <li><a href="#figures">Characters</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#book" class="btn-nav">Book Now</a></li>
             </ul>
-            <div class="theme-switcher">
-                <button id="alliance-btn" class="faction-pill alliance">Alliance</button>
-                <button id="horde-btn" class="faction-pill horde">Horde</button>
-                <button id="neutral-btn" class="faction-pill neutral">Neutral</button>
+            <div class="mobile-menu" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-    <header class="hero">
+    <header id="home" class="hero">
         <div class="hero-content">
-            <div class="hero-logo-banner">
-                <img src="https://worldofwarcraft.blizzard.com/static/images/logo-wow.png" alt="World of Warcraft Logo" class="main-logo">
-            </div>
-            <h1 class="hero-title">THE ARCHIVE</h1>
-            <p class="hero-subtitle">Chronicles of the Eternal Conflict</p>
+            <h1 class="hero-title">Experience a <span class="highlight">Truly Clean</span> Space</h1>
+            <p>Professional, reliable, and detailed cleaning services for your home and business. We take the stress out of cleaning so you can focus on what matters most.</p>
             <div class="hero-btns">
-                <a href="skyborne.html" class="btn-primary">Explore Forever</a>
-                <a href="maps.html" class="btn-secondary">View Maps</a>
+                <a href="#book" class="btn-primary">Book an Appointment</a>
+                <a href="#pricing" class="btn-secondary">View Pricing</a>
             </div>
         </div>
     </header>
 
-    <main>
-        <section class="feature-row">
-            <div class="feature-text">
-                <span class="category-tag">Upcoming Release</span>
-                <h2 class="feature-title">World of Warcraft: Forever</h2>
-                <p class="feature-desc">A reimagined permanent game mode. Set in a unique time bubble, Forever diverges from the retail timeline to explore untold stories.</p>
-                <ul class="feature-list">
-                    <li><strong>The Skyborne:</strong> A new playable race of Air Elves.</li>
-                    <li><strong>Expanded Lore:</strong> 1,000+ new quests across Zephras Isle.</li>
-                    <li><strong>Eternal Cap:</strong> Level 60 cap permanently maintained.</li>
-                </ul>
-                <a href="skyborne.html" class="btn-text">Learn about the Skyborne &rarr;</a>
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title-border">Our Professional Services</h2>
+                <p>Tailored cleaning solutions designed to meet your specific needs.</p>
             </div>
-        </section>
-
-        <section class="feature-row reverse">
-            <div class="feature-text">
-                <span class="category-tag">The Cosmos</span>
-                <h2 class="feature-title">The Great Order</h2>
-                <p class="feature-desc">From the blinding purity of the Light to the corrupting whispers of the Void, the cosmos is in constant flux.</p>
-                <div class="cosmo-mini-grid">
-                    <div class="mini-card"><strong>Light</strong><span>Creation</span></div>
-                    <div class="mini-card"><strong>Void</strong><span>Chaos</span></div>
-                    <div class="mini-card"><strong>Arcane</strong><span>Order</span></div>
-                    <div class="mini-card"><strong>Fel</strong><span>Disorder</span></div>
+            <div class="services-grid">
+                <div class="service-card bordered">
+                    <div class="service-icon">🏠</div>
+                    <h3>Residential Cleaning</h3>
+                    <p>From weekly maintenance to deep spring cleaning, we keep your home spotless and welcoming.</p>
+                    <ul class="service-list">
+                        <li>Kitchen & Bath Sanitization</li>
+                        <li>Dusting & Vacuuming</li>
+                        <li>Floor Mopping & Polishing</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        <section class="map-teaser-section">
-            <div class="section-header-center">
-                <span class="category-tag">World Geography</span>
-                <h2>The World of Azeroth</h2>
-                <p>A glimpse at the sprawling continents of the Eastern Kingdoms and Kalimdor.</p>
-            </div>
-            <div class="map-container">
-                <div class="map-placeholder">
-                    <p>Map Archive Loading...</p>
+                <div class="service-card bordered">
+                    <div class="service-icon">🏢</div>
+                    <h3>Commercial Cleaning</h3>
+                    <p>Impress your clients and provide a healthy environment for your employees with our office solutions.</p>
+                    <ul class="service-list">
+                        <li>Workspace Disinfection</li>
+                        <li>Common Area Maintenance</li>
+                        <li>Window & Glass Cleaning</li>
+                    </ul>
                 </div>
-                <div class="map-overlay">
-                    <a href="maps.html" class="btn-primary">Explore All Territories</a>
+                <div class="service-card bordered">
+                    <div class="service-icon">📦</div>
+                    <h3>Move In/Out</h3>
+                    <p>Taking the stress out of moving. We ensure your old place is pristine and your new one is ready for you.</p>
+                    <ul class="service-list">
+                        <li>Inside Cabinets & Drawers</li>
+                        <li>Baseboard Deep Cleaning</li>
+                        <li>Full Appliance Scrubbing</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        <section id="figures" class="grid-section">
-            <div class="section-header-center">
-                <span class="category-tag">The Icons</span>
-                <h2>Legendary Figures</h2>
-                <p>The leaders and heroes who shaped the fate of the world.</p>
-            </div>
-            <div class="modern-grid">
-                <div class="character-card">
-                    <div class="char-info">
-                        <h3>Arthas Menethil</h3>
-                        <span class="char-role">The Lich King</span>
-                        <p>A fallen prince who became the ultimate harbinger of death.</p>
-                    </div>
-                </div>
-                <div class="character-card">
-                    <div class="char-info">
-                        <h3>Thrall</h3>
-                        <span class="char-role">Warchief</span>
-                        <p>The visionary who sought a home and honor for the Orcish people.</p>
-                    </div>
-                </div>
-                <div class="character-card">
-                    <div class="char-info">
-                        <h3>Jaina Proudmoore</h3>
-                        <span class="char-role">Lord Admiral</span>
-                        <p>The most powerful arcane master of the current age.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-top">
-            <div class="footer-logo">WORLD OF <span class="logo-sub">WARCRAFT</span></div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Cookie Settings</a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Blizzard Entertainment, Inc. All rights reserved.</p>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title-border">Instant Price Estimate</h2>
+                <p>No hidden fees. Adjust the sliders to see your estimated cost.</p>
+            </div>
+
+            <div class="pricing-interactive-box bordered">
+                <div class="calculator-controls">
+                    <div class="control-group">
+                        <label for="sqft-slider">Home Size: <span id="sqft-value">1,500</span> sq ft</label>
+                        <input type="range" id="sqft-slider" min="500" max="5000" step="100" value="1500">
+                        <div class="slider-labels">
+                            <span>500</span>
+                            <span>5000</span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Service Level</label>
+                        <div class="toggle-group">
+                            <button class="toggle-btn active" data-level="standard">Standard Clean</button>
+                            <button class="toggle-btn" data-level="deep">Deep Clean</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Frequency</label>
+                        <div class="toggle-group">
+                            <button class="toggle-btn active" data-freq="once">One-Time</button>
+                            <button class="toggle-btn" data-freq="weekly">Weekly (-15%)</button>
+                            <button class="toggle-btn" data-freq="biweekly">Bi-Weekly (-10%)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-display">
+                    <span class="price-label">Estimated Total</span>
+                    <div class="total-amount">$<span id="total-price">0</span></div>
+                    <p class="price-disclaimer">*Final price may vary after on-site walkthrough</p>
+                    <a href="#book" class="btn-primary">Lock in this Price</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="title-border">What Our Clients Say</h2>
+                <p>Join hundreds of happy homeowners across the city.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card bordered">
+                    <div class="stars">★★★★★</div>
+                    <p>"Absolute game changer! I come home from work and the house feels like a hotel. Highly recommend Pristine Pro!"</p>
+                    <div class="reviewer">
+                        <strong class="reviewer-name">Sarah J.</strong>
+                        <span class="reviewer-loc">Residential Client</span>
+                    </div>
+                </div>
+                <div class="review-card bordered">
+                    <div class="stars">★★★★★</div>
+                    <p>"The move-out clean was flawless. I got my entire security deposit back without a single question. Thank you!"</p>
+                    <div class="reviewer">
+                        <strong class="reviewer-name">Marcus T.</strong>
+                        <span class="reviewer-loc">Move-out Service</span>
+                    </div>
+                </div>
+                <div class="review-card bordered">
+                    <div class="stars">★★★★★</div>
+                    <p>"Professional, punctual, and thorough. Our office has never looked better. Our employees love the fresh environment."</p>
+                    <div class="reviewer">
+                        <strong class="reviewer-name">Linda W.</strong>
+                        <span class="reviewer-loc">Commercial Client</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="book" class="booking-section">
+        <div class="container">
+            <div class="booking-box bordered">
+                <div class="booking-info">
+                    <h2 class="title-border">Book Your Appointment</h2>
+                    <p>Select your preferred date and time. We'll confirm your slot within 2 hours.</p>
+                    <div class="booking-features">
+                        <div class="feat"><span>✓</span> Instant Availability</div>
+                        <div class="feat"><span>✓</span> Secure Booking</div>
+                        <div class="feat"><span>✓</span> Easy Rescheduling</div>
+                    </div>
+                </div>
+                <div class="booking-form">
+                    <form id="appointment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" required placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" required placeholder="(555) 000-0000">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Date</label>
+                                <input type="date" id="book-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Time</label>
+                                <select id="book-time" required>
+                                    <option value="morning">Morning (8AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                                    <option value="evening">Evening (4PM - 8PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Notes</label>
+                            <textarea placeholder="Any specific areas that need extra attention?" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Confirm Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">PRISTINE<span>PRO</span></div>
+                <p>&copy; 2026 Pristine Pro Cleaning Services. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
