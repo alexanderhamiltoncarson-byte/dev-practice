@@ -139,8 +139,7 @@ nav.scrolled {
     text-align: center;
     color: var(--text-white);
     position: relative;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-                url('https://images.unsplash.com/photo-1500530855697-B586d8952675?q=80&w=2000') center/cover no-repeat fixed;
+    background: radial-gradient(circle, rgba(20,20,40,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 .hero-logo-banner {
@@ -553,8 +552,18 @@ footer {
     right: 20px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.map-placeholder {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--accent);
+    font-family: 'Oswald', sans-serif;
+    border: 1px dashed var(--accent);
+}
     .nav-links { display: none; }
     .timeline-row { flex-direction: column; gap: 10px; }
     .time-label { text-align: left; }
